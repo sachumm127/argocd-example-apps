@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: list-test
+  namespace: argocd
+spec:
+  generators:
+  - list:
+      elements:
+      - repoURL: 'https://github.com/morey-tech/argocd-example-apps.git'
+        repoName: repo-a
+      - repoURL: 'https://github.com/morey-tech/argocd-example-apps.git'
+        repoName: repo-b
+  template:
+    metadata:
+      name: '{{repoName}}'
+    spec:
+      project: 'default'
+      source:
+        repoURL: '{{repoURL}}'
+        targetRevision: main
+        path: '/general/helm-guestbook'
+      destination:
+        name: kind
+        namespace: default
