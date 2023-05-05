@@ -19,7 +19,7 @@ spec:
       source:
         repoURL: '{{repoURL}}'
         targetRevision: main
-        path: '/general/helm-guestbook'
+        path: 'general/helm-guestbook'
       destination:
         name: kind
         namespace: default
