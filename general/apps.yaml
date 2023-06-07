@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: apps
+spec:
+  destination:
+    name: in-cluster
+    namespace: argocd
+    server: ''
+  source:
+    path: general/apps
+    repoURL: 'https://github.com/morey-tech/argocd-example-apps'
+    targetRevision: HEAD
+    helm:
+      parameters:
+        - name: spec.destination.name
+          value: kind
+  sources: []
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
