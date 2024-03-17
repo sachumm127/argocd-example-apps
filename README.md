@@ -19,3 +19,6 @@ to explore ArgoCD and GitOps!
 | [plugins](plugins/) | Apps which demonstrate config management plugins usage |
 | [blue-green](blue-green/) | Demonstrates how to implement blue-green deployment using [Argo Rollouts](https://github.com/argoproj/argo-rollouts)
 | [apps](apps/) | An app composed of other apps |
+
+## Try it out!
+This repository contains a `devcontainer` configuration that will spin up a kind cluster and deploy Argo CD into it for you to try it out!
